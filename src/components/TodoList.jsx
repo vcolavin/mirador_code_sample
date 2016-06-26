@@ -3,7 +3,14 @@ var React = require('react');
 var TodoList = React.createClass({
   render: function(){
     return (
-      <h1>{this.props.messages[0].note}</h1>
+      <div>
+        <h1> TODO LIST </h1>
+        <ul>
+          {this.props.todos.map(function(todo){
+            return <li key={todo.id}>{todo.note}</li>
+          })}
+        </ul>
+      </div>
     );
   },
 

@@ -5,9 +5,9 @@ var TodoList = require('./TodoList');
 var App = React.createClass({
   getInitialState: function(){
     return {
-      messages: [
-        {note: "eat food"},
-        {note: "go running"}
+      todos: [
+        {note: "eat food", id: 1},
+        {note: "go running", id: 2}
       ]
     }
   },
@@ -15,7 +15,7 @@ var App = React.createClass({
   render: function(){
     return (
       <div id="app">
-        <TodoList messages={this.state.messages}/>
+        <TodoList todos={this.state.todos}/>
       </div>
     );
   }
