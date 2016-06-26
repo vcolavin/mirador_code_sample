@@ -1,12 +1,21 @@
 var React = require('react');
 
-var HelloWorld = require('./HelloWorld');
+var TodoList = require('./TodoList');
 
 var App = React.createClass({
+  getInitialState: function(){
+    return {
+      messages: [
+        {note: "eat food"},
+        {note: "go running"}
+      ]
+    }
+  },
+
   render: function(){
     return (
       <div id="app">
-        <HelloWorld name="Vincent" />
+        <TodoList messages={this.state.messages}/>
       </div>
     );
   }
