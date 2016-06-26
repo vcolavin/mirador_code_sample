@@ -5,7 +5,6 @@ var TodoList = React.createClass({
     var todos = this.props.todos
     return (
       <div>
-        <h1> TODO LIST </h1>
         <ul>
           {todos.map(function(todo){
             return <li key={todo.id}>{todo.note}</li>
@@ -13,10 +12,7 @@ var TodoList = React.createClass({
         </ul>
       </div>
     );
-  },
-
-  addNote: function(){console.log("add a note!")},
-  deleteNote: function(){console.log("delete a note!")}
+  }
 });
 
 module.exports = TodoList;

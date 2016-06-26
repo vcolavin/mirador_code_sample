@@ -17,9 +17,24 @@ var App = React.createClass({
     todos = this.state.todos
 
     return (
-      <TodoList todos={todos}/>
+      <div>
+        <h1> TODO LIST </h1>
+        <button onClick={this.addTodo}>add a note!</button>
+        <TodoList todos={todos}/>
+      </div>
     );
-  }
+  },
+
+  addTodo: function(){
+    this.setState({
+      todos: this.state.todos.concat([{
+        note: "new todo!",
+        id: uuid.v4()
+      }])
+    })
+    console.log("adding note!")
+  },
+  deleteTodo: function(){console.log("deleting todo!")}
 });
 
 module.exports = App;
