@@ -2,6 +2,7 @@ var React = require('react');
 var uuid = require('uuid');
 
 var TodoList = require('./TodoList');
+var TodoAdder = require('./TodoAdder');
 
 var App = React.createClass({
   getInitialState: function(){
@@ -19,6 +20,7 @@ var App = React.createClass({
     return (
       <div>
         <h1> TODO LIST </h1>
+        <TodoAdder/>
         <button onClick={this.addTodo}>add a note!</button>
         <TodoList todos={todos}/>
       </div>
