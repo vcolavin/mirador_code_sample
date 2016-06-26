@@ -13,9 +13,11 @@ var App = React.createClass({
   },
 
   render: function(){
+    todos = this.state.todos
+
     return (
       <div id="app">
-        <TodoList todos={this.state.todos}/>
+        <TodoList todos={todos}/>
       </div>
     );
   }
