@@ -9,12 +9,17 @@ var TodoList = React.createClass({
     // `this` is not available inside the map function
     var handleDeleteTodo = this.handleDeleteTodo
     var toggleTodo = this.toggleTodo
+    var displayComplete = this.props.displayComplete
+    var displayIncomplete = this.props.displayIncomplete
     return (
       <div>
         <ul>
           {todos.map(function(todo){
             return (
+
               <TodoItem
+                displayComplete={displayComplete}
+                displayIncomplete={displayIncomplete}
                 toggleTodo={toggleTodo}
                 deleteTodo={handleDeleteTodo}
                 key={todo.id}

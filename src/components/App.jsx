@@ -44,6 +44,8 @@ var App = React.createClass({
           toggleTodo={this.toggleTodo}
           deleteTodo={this.deleteTodo}
           todos={todos}
+          displayComplete={this.state.displayComplete}
+          displayIncomplete={this.state.displayIncomplete}
         />
       </div>
     );
