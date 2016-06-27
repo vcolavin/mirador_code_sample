@@ -36,8 +36,12 @@ var App = React.createClass({
     })
   },
 
-  deleteTodo: function(todo){
-    console.log("deleting todo! " + todo.id + " " + todo.note)
+  deleteTodo: function(todoToDelete){
+    this.setState({
+      todos: this.state.todos.filter (function(todo) {
+        return todo.id !== todoToDelete.id
+      })
+    })
   }
 });
 
