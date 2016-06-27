@@ -9,8 +9,16 @@ var App = React.createClass({
   getInitialState: function(){
     return {
       todos: [
-        {message: "eat food", id: uuid.v4()},
-        {message: "go running", id: uuid.v4()}
+        {
+          message: "eat food",
+          id: uuid.v4(),
+          complete: false
+        },
+        {
+          message: "go running",
+          id: uuid.v4(),
+          complete: false
+        }
       ]
     }
   },
@@ -22,7 +30,7 @@ var App = React.createClass({
       <div>
         <h1>TODO LIST</h1>
         <TodoAdder addTodo={this.addTodo}/>
-        <TodoList deleteTodo={this.deleteTodo} todos={todos}/>
+        <TodoList toggleTodo={this.toggleTodo} deleteTodo={this.deleteTodo} todos={todos}/>
       </div>
     );
   },
@@ -31,7 +39,8 @@ var App = React.createClass({
     this.setState({
       todos: this.state.todos.concat([{
         message: newTodoMessage,
-        id: uuid.v4()
+        id: uuid.v4(),
+        complete: false
       }])
     })
   },
@@ -40,6 +49,17 @@ var App = React.createClass({
     this.setState({
       todos: this.state.todos.filter (function(todo) {
         return todo.id !== todoToDelete.id
+      })
+    })
+  },
+
+  toggleTodo: function(todoToToggle){
+    this.setState({
+      todos: this.state.todos.map(function(todo) {
+        if(todo.id === todoToToggle.id) {
+          todo.complete = !todo.complete
+        }
+        return todo
       })
     })
   }

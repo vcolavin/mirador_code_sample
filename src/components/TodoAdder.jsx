@@ -5,17 +5,6 @@ var TodoAdder = React.createClass({
     return {}
   },
 
-  handleChange: function(e) {
-    this.setState({newTodoMessage: e.target.value});
-  },
-
-  handleSubmit: function(e) {
-    e.preventDefault();
-    if (this.state.newTodoMessage) {
-      this.props.addTodo(this.state.newTodoMessage)
-    }
-  },
-
   render: function(){
     return (
       <form onSubmit={this.handleSubmit}>
@@ -27,6 +16,17 @@ var TodoAdder = React.createClass({
       </form>
     );
   },
+
+  handleChange: function(e) {
+    this.setState({newTodoMessage: e.target.value});
+  },
+
+  handleSubmit: function(e) {
+    e.preventDefault();
+    if (this.state.newTodoMessage) {
+      this.props.addTodo(this.state.newTodoMessage)
+    }
+  }
 });
 
 module.exports = TodoAdder;
