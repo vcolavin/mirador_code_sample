@@ -9,6 +9,7 @@ var TodoItem = React.createClass({
     var todo = this.props.todo
     return (
       <li>
+        <input type="checkbox"></input>
         <span>{todo.message}</span>
         <button onClick={this.handleClick}>X</button>
       </li>
