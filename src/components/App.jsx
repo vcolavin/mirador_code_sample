@@ -20,14 +20,15 @@ var App = React.createClass({
     return (
       <div>
         <h1> TODO LIST </h1>
-        <TodoAdder/>
-        <button onClick={this.addTodo}>add a note!</button>
+        <TodoAdder addTodo={this.addTodo}/>
         <TodoList todos={todos}/>
       </div>
     );
   },
 
-  addTodo: function(){
+  addTodo: function(event, thingie){
+    event.preventDefault();
+    debugger
     this.setState({
       todos: this.state.todos.concat([{
         note: "new todo!",

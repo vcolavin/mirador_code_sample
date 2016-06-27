@@ -3,12 +3,12 @@ var React = require('react');
 var TodoAdder = React.createClass({
   render: function(){
     return (
-      <div>
+      <form>
         <input type="text" defaultValue="new todo item!"></input>
-        <button>add it!</button>
-      </div>
+        <input type="submit" onClick={this.props.addTodo} value="yeah!"></input>
+      </form>
     );
-  }
+  },
 });
 
 module.exports = TodoAdder;
