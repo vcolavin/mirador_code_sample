@@ -36,8 +36,8 @@ var App = React.createClass({
     })
   },
 
-  deleteTodo: function(){
-    console.log("deleting todo!")
+  deleteTodo: function(todo){
+    console.log("deleting todo! " + todo.id + " " + todo.note)
   }
 });
 
