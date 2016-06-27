@@ -4,7 +4,6 @@ var TodoItem = React.createClass({
   render: function(){
     var todo = this.props.todo
 
-
     var className = ""
 
     if (

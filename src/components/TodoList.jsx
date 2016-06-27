@@ -3,14 +3,11 @@ var TodoItem = require('./TodoItem')
 
 var TodoList = React.createClass({
 
+  // TODO: This component does exceedingly little
+
   render: function(){
     var todos = this.props.todos
 
-    // `this` is not available inside the map function
-    var handleDeleteTodo = this.handleDeleteTodo
-    var toggleTodo = this.toggleTodo
-    var displayComplete = this.props.displayComplete
-    var displayIncomplete = this.props.displayIncomplete
     return (
       <div>
         <ul>
@@ -18,15 +15,15 @@ var TodoList = React.createClass({
             return (
 
               <TodoItem
-                displayComplete={displayComplete}
-                displayIncomplete={displayIncomplete}
-                toggleTodo={toggleTodo}
-                deleteTodo={handleDeleteTodo}
                 key={todo.id}
                 todo={todo}
+                toggleTodo={this.toggleTodo}
+                deleteTodo={this.handleDeleteTodo}
+                displayComplete={this.props.displayComplete}
+                displayIncomplete={this.props.displayIncomplete}
               />
             )
-          })}
+          }, this)}
         </ul>
       </div>
     );
