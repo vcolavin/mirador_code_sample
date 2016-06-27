@@ -36,9 +36,19 @@ var App = React.createClass({
 
         <TodoAdder addTodo={this.addTodo}/>
 
-        <input type="checkbox" defaultChecked={this.state.displayIncomplete} onChange={this.toggleDisplayIncomplete}></input>show incomplete
+        <input
+          type="checkbox"
+          defaultChecked={this.state.displayIncomplete}
+          onChange={this.toggleDisplayIncomplete}
+        />
+        <span>show incomplete</span>
         <br/>
-        <input type="checkbox" defaultChecked={this.state.displayComplete} onChange={this.toggleDisplayComplete}></input>show complete
+        <input
+          type="checkbox"
+          defaultChecked={this.state.displayComplete}
+          onChange={this.toggleDisplayComplete}
+        />
+        <span>show complete</span>
 
         <TodoList
           toggleTodo={this.toggleTodo}
