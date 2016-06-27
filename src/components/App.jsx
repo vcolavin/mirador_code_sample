@@ -28,18 +28,23 @@ var App = React.createClass({
   render: function(){
     todos = this.state.todos
 
+    // TODO: break the toggle checkboxes into their own component
+    // Maybe they should be a child of the TodoList component?
     return (
       <div>
         <h1>TODO LIST</h1>
 
         <TodoAdder addTodo={this.addTodo}/>
 
+        <input type="checkbox" defaultChecked={this.state.displayIncomplete} onChange={this.toggleDisplayIncomplete}></input>show incomplete
+        <br/>
         <input type="checkbox" defaultChecked={this.state.displayComplete} onChange={this.toggleDisplayComplete}></input>show complete
 
-        <br/>
-        <input type="checkbox" defaultChecked={this.state.displayIncomplete} onChange={this.toggleDisplayIncomplete}></input>show incomplete
-
-        <TodoList toggleTodo={this.toggleTodo} deleteTodo={this.deleteTodo} todos={todos}/>
+        <TodoList
+          toggleTodo={this.toggleTodo}
+          deleteTodo={this.deleteTodo}
+          todos={todos}
+        />
       </div>
     );
   },
@@ -49,11 +54,11 @@ var App = React.createClass({
       displayComplete: !this.state.displayComplete
     })
   },
+
   toggleDisplayIncomplete: function(){
     this.setState({
       displayIncomplete: !this.state.displayIncomplete
     })
-
   },
 
   addTodo: function(newTodoMessage){

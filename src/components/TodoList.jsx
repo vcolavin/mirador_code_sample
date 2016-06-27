@@ -13,7 +13,14 @@ var TodoList = React.createClass({
       <div>
         <ul>
           {todos.map(function(todo){
-            return <TodoItem toggleTodo={toggleTodo} deleteTodo={handleDeleteTodo} key={todo.id} todo={todo}/>
+            return (
+              <TodoItem
+                toggleTodo={toggleTodo}
+                deleteTodo={handleDeleteTodo}
+                key={todo.id}
+                todo={todo}
+              />
+            )
           })}
         </ul>
       </div>
