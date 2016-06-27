@@ -1,4 +1,5 @@
 var React = require('react');
+var TodoItem = require('./TodoItem')
 
 var TodoList = React.createClass({
   render: function(){
@@ -7,7 +8,7 @@ var TodoList = React.createClass({
       <div>
         <ul>
           {todos.map(function(todo){
-            return <li key={todo.id}>{todo.note}</li>
+            return <TodoItem key={todo.id} todo={todo}/>
           })}
         </ul>
       </div>

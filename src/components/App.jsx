@@ -5,6 +5,7 @@ var TodoList = require('./TodoList');
 var TodoAdder = require('./TodoAdder');
 
 var App = React.createClass({
+
   getInitialState: function(){
     return {
       todos: [
@@ -19,9 +20,9 @@ var App = React.createClass({
 
     return (
       <div>
-        <h1> TODO LIST </h1>
+        <h1>TODO LIST</h1>
         <TodoAdder addTodo={this.addTodo}/>
-        <TodoList todos={todos}/>
+        <TodoList deleteTodo={this.deleteTodo} todos={todos}/>
       </div>
     );
   },
@@ -36,7 +37,6 @@ var App = React.createClass({
         id: uuid.v4()
       }])
     })
-    console.log("adding note!")
   },
   deleteTodo: function(){console.log("deleting todo!")}
 });

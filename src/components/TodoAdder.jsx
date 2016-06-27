@@ -2,7 +2,7 @@ var React = require('react');
 
 var TodoAdder = React.createClass({
   getInitialState: function(){
-    return {newTodoValue: "new todo!"}
+    return {newTodoValue: "your new todo!"}
   },
 
   handleChange: function(event) {
