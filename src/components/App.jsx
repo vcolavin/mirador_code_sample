@@ -19,7 +19,9 @@ var App = React.createClass({
           id: uuid.v4(),
           complete: false
         }
-      ]
+      ],
+      displayComplete: true,
+      displayIncomplete: true
     }
   },
 
@@ -29,10 +31,29 @@ var App = React.createClass({
     return (
       <div>
         <h1>TODO LIST</h1>
+
         <TodoAdder addTodo={this.addTodo}/>
+
+        <input type="checkbox" defaultChecked={this.state.displayComplete} onChange={this.toggleDisplayComplete}></input>show complete
+
+        <br/>
+        <input type="checkbox" defaultChecked={this.state.displayIncomplete} onChange={this.toggleDisplayIncomplete}></input>show incomplete
+
         <TodoList toggleTodo={this.toggleTodo} deleteTodo={this.deleteTodo} todos={todos}/>
       </div>
     );
+  },
+
+  toggleDisplayComplete: function(){
+    this.setState({
+      displayComplete: !this.state.displayComplete
+    })
+  },
+  toggleDisplayIncomplete: function(){
+    this.setState({
+      displayIncomplete: !this.state.displayIncomplete
+    })
+
   },
 
   addTodo: function(newTodoMessage){

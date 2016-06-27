@@ -7,11 +7,11 @@ var TodoItem = React.createClass({
       <li>
         <input onChange={this.handleCompleteToggle} type="checkbox"></input>
         <span>{todo.message}</span>
-        <button onClick={this.handleClick}>X</button>
+        <button onClick={this.handleDelete}>X</button>
       </li>
     );
   },
-  handleClick: function() {
+  handleDelete: function() {
     this.props.deleteTodo(this.props.todo)
   },
 
