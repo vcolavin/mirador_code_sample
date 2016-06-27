@@ -26,12 +26,13 @@ var App = React.createClass({
     );
   },
 
-  addTodo: function(event, thingie){
+  addTodo: function(event){
     event.preventDefault();
-    debugger
+    var newTodoMessage = event.target.value;
+
     this.setState({
       todos: this.state.todos.concat([{
-        note: "new todo!",
+        note: newTodoMessage,
         id: uuid.v4()
       }])
     })
