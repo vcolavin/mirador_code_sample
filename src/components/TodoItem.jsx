@@ -9,7 +9,7 @@ var TodoItem = React.createClass({
     var todo = this.props.todo
     return (
       <li>
-        <span>{todo.note}</span>
+        <span>{todo.message}</span>
         <button onClick={this.handleClick}>X</button>
       </li>
     );

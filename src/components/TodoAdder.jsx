@@ -1,8 +1,8 @@
 var React = require('react');
 
 var TodoAdder = React.createClass({
-  getInitialState: function(){
-    return {newTodoMessage: "your new todo!"}
+  getInitialState: function() {
+    return {}
   },
 
   handleChange: function(e) {
@@ -11,14 +11,16 @@ var TodoAdder = React.createClass({
 
   handleSubmit: function(e) {
     e.preventDefault();
-    this.props.addTodo(this.state.newTodoMessage)
+    if (this.state.newTodoMessage) {
+      this.props.addTodo(this.state.newTodoMessage)
+    }
   },
 
   render: function(){
     return (
       <form onSubmit={this.handleSubmit}>
 
-        <input type="text" onChange={this.handleChange} defaultValue={this.state.newTodoMessage}></input>
+        <input type="text" onChange={this.handleChange}  placeholder="put in a new to do!"></input>
 
         <input type="submit" value="add this todo!"></input>
 

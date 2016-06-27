@@ -9,8 +9,8 @@ var App = React.createClass({
   getInitialState: function(){
     return {
       todos: [
-        {note: "eat food", id: uuid.v4()},
-        {note: "go running", id: uuid.v4()}
+        {message: "eat food", id: uuid.v4()},
+        {message: "go running", id: uuid.v4()}
       ]
     }
   },
@@ -30,7 +30,7 @@ var App = React.createClass({
   addTodo: function(newTodoMessage){
     this.setState({
       todos: this.state.todos.concat([{
-        note: newTodoMessage,
+        message: newTodoMessage,
         id: uuid.v4()
       }])
     })
