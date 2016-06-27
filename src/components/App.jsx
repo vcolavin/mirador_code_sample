@@ -27,10 +27,7 @@ var App = React.createClass({
     );
   },
 
-  addTodo: function(event){
-    event.preventDefault();
-    var newTodoMessage = event.target.value;
-
+  addTodo: function(newTodoMessage){
     this.setState({
       todos: this.state.todos.concat([{
         note: newTodoMessage,
@@ -38,7 +35,10 @@ var App = React.createClass({
       }])
     })
   },
-  deleteTodo: function(){console.log("deleting todo!")}
+
+  deleteTodo: function(){
+    console.log("deleting todo!")
+  }
 });
 
 module.exports = App;

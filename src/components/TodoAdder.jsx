@@ -2,18 +2,23 @@ var React = require('react');
 
 var TodoAdder = React.createClass({
   getInitialState: function(){
-    return {newTodoValue: "your new todo!"}
+    return {newTodoMessage: "your new todo!"}
   },
 
-  handleChange: function(event) {
-    this.setState({newTodoMessage: event.target.value});
+  handleChange: function(e) {
+    this.setState({newTodoMessage: e.target.value});
+  },
+
+  handleSubmit: function(e) {
+    e.preventDefault();
+    this.props.addTodo(this.state.newTodoMessage)
   },
 
   render: function(){
     return (
-      <form value={this.state.newTodoMessage} onSubmit={this.props.addTodo}>
+      <form onSubmit={this.handleSubmit}>
 
-        <input type="text" onChange={this.handleChange} defaultValue={this.props.newTodoMessage}></input>
+        <input type="text" onChange={this.handleChange} defaultValue={this.state.newTodoMessage}></input>
 
         <input type="submit" value="add this todo!"></input>
 
